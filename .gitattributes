@@ -1,30 +1,31 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 import random
+
 list=["Rock","Paper","Scissors"]
 
 
 player_points=0
 computer_points=0
 
-for i in range(99):
+for _i in range(99):
     player_input=input("\n\nRock,Paper,Scissors: ").lower()
     computer_input=random.choice(list).lower()
     print(f"My Input: {computer_input}")
     if (player_input=="rock" and computer_input=="paper") or (player_input=="paper" and computer_input=="scissors") or (player_input=="scissors" and computer_input=="rock"):
         computer_points+=1
         print("I Won!!")
-        if player_points==5:
-            break
+        
     elif (player_input=="paper" and computer_input=="rock") or (player_input=="scissors" and computer_input=="paper") or (player_input=="rock" and computer_input=="scissors"):
         player_points+=1
         print("You Won!!")
-        if computer_points==5:
-            break
+        
     elif (player_input==computer_input):
         print("Its a Draw!!")
     else:
       print("**Enter Valid Input**")
+    if player_points==5 or computer_points==5:
+      break
 if player_points>computer_points:
   print("\n\n\nCongratulations You Won")
   
